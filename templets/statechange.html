@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="change_state">
+    {% csrf_token %}
+    <label>State: </label> <br/>
+  <input type="text" name="state"><br>
+    <input type="SUBMIT"></input>
+</form>
+</body>
+</html>
