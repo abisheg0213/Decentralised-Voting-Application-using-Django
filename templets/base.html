@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<style>
+h1
+{
+font-family: "Times New Roman", Times, serif;
+color:#539165; }
+        body
+        {
+        background-color:#E4F9F5;
+        }
+    </style>
 </head>
+
 <body>
-<button type="button"><a href="/register">Click to Register a new Voter</a></button>
-<button type="button"><a href="/vote">Click to vote</a></button>
-<button type="button"><a href="/result">Click to view the Result</a></button>
+<center>
+    <img src="https://pixelplex.io/wp-content/uploads/2021/02/blockchain-voting-main-1600.jpg" height=600" width="1000">
+<h1>DECENTRALISED VOTING APPLICATION</h1>
+<hr></center>
+<!--<div class="card" style="width: 18rem;">-->
+<!--  <img src="..." class="card-img-top" alt="...">-->
+<!--  <div class="card-body">-->
+<!--    <h5 class="card-title">Card title</h5>-->
+<!--    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--    <a href="#" class="btn btn-primary">Go somewhere</a>-->
+<!--  </div>-->
+<!--</div>-->
+<center>
+<a href="/register"><button type="button" class="btn btn-outline-success">Click to Register new Voter</button></a>
+<a href="/vote"><button type="button" class="btn btn-outline-success">Vote</button></a>
+<a href="/result"><button type="button" class="btn btn-outline-success">View Result</button></a>
+</center>
+<hr>
+
 <h1>{{data}}</h1>
 </body>
 </html>

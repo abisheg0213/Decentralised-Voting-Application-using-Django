@@ -191,3 +191,7 @@ def win_proposal():
 def view_stage():
     l=con_instance.functions.stage().call()
     return l
+def call_me_first():
+    compile()
+    cons()
+    create_inst()

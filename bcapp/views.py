@@ -2,9 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . import web3data
 
-web3data.compile()
-web3data.cons()
-web3data.create_inst()
+web3data.call_me_first()
 # Create your views here.
 def dishome(request):
     # web3data.create_inst()
@@ -24,7 +22,7 @@ def reg_user(request):
 
 def disresult(request):
     y=web3data.win_proposal()
-    d={0:'ADMK',1:'DMK',2:'BJP'}
+    d={0:'MONK',1:'DMK',2:'BJP'}
     return render(request, 'result.html',{'data':d[y]})
 def votecand(request):
     if request.method=='POST':

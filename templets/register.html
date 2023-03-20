@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+    h1
+{
+font-family: "Times New Roman", Times, serif;
+color:#539165; }
+        body
+        {
+        background-color:#E4F9F5;
+        }
+    </style>
 </head>
 <body>
+<center>
+    <img src="https://pixelplex.io/wp-content/uploads/2021/02/an-example-of-a-better-voting-system.jpg" height=300" width="500">
+    <h1><em>Register for New Voter</em></h1>
+<hr></center>
+<center>
 <form method="POST" action="reg_user">
     {% csrf_token %}
     <label>Address: </label> <br/>
   <input type="text" name="address"><br>
     <input type="SUBMIT"></input>
 </form>
+    </center>
 </body>
 </html>
