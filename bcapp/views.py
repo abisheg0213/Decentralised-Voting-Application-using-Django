@@ -27,7 +27,7 @@ def reg_user(request):
 
 def disresult(request):
     if (web3data.view_stage() != 3):
-        return render(request,'alert.html')
+        return render(request,'alert2.html')
     else:
         y=web3data.win_proposal()
         d={0:'MONK',1:'DMK',2:'BJP'}

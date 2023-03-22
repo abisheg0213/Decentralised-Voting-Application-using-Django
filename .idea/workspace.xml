@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4fa6c25-d0fe-4d1f-b918-1715462da0a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templets/alert.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templets/alert1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templets/alert2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bcapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bcapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bcapp/web3data.py" beforeDir="false" afterPath="$PROJECT_DIR$/bcapp/web3data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templets/display.html" beforeDir="false" afterPath="$PROJECT_DIR$/templets/display.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
