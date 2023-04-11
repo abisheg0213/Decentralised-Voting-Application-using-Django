@@ -1,6 +1,6 @@
 from solcx import compile_source, install_solc
 from web3 import Web3
-# install_solc()
+install_solc()
 con_instance=""
 w3=Web3(Web3.HTTPProvider('HTTP://127.0.0.1:7545'))
 ballot=""
@@ -127,16 +127,16 @@ contract ballot
     a=contract_interface['abi']
     b=contract_interface['bin']
     ballot=w3.eth.contract(abi=a,bytecode=b)
-non=w3.eth.getTransactionCount("0xF1207a3dD221A43a4Fa648D33c3daCf0503F8e79")
+non=w3.eth.get_transaction_count("0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e")
 def cons():
     global tx_recipt
-    tx=ballot.constructor().buildTransaction(
+    tx=ballot.constructor().build_transaction(
     {
         "gasPrice":w3.eth.gas_price,
-        'from':"0xF1207a3dD221A43a4Fa648D33c3daCf0503F8e79",
-         'nonce':w3.eth.getTransactionCount("0xF1207a3dD221A43a4Fa648D33c3daCf0503F8e79")
+        'from':"0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e",
+         'nonce':w3.eth.get_transaction_count("0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e")
     })
-    p="0xe9fa46a650d57dde6a2dbcaaafa834ce90741e39ca406074602cb0c6c80dad0b"
+    p="0xfa7b8d911af886b209c4e4c1ee6d76fede33d27e30748f773e3e787dc73eea77"
     signed_tx=w3.eth.account.sign_transaction(tx,private_key=p)
     tx_hash=w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     tx_recipt=w3.eth.wait_for_transaction_receipt(tx_hash)
@@ -145,14 +145,14 @@ def create_inst():
     print(tx_recipt.contractAddress)
     print(a)
     con_instance=w3.eth.contract(address=tx_recipt.contractAddress,abi=a)
-owner_add="0xF1207a3dD221A43a4Fa648D33c3daCf0503F8e79"
-p_owner="0xe9fa46a650d57dde6a2dbcaaafa834ce90741e39ca406074602cb0c6c80dad0b"
+owner_add="0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e"
+p_owner="0xfa7b8d911af886b209c4e4c1ee6d76fede33d27e30748f773e3e787dc73eea77"
 def state(no):
-    tx = con_instance.functions.change_state(no).buildTransaction(
+    tx = con_instance.functions.change_state(no).build_transaction(
         {
             "gasPrice": w3.eth.gas_price,
             "from": owner_add,
-            'nonce': w3.eth.getTransactionCount(owner_add)
+            'nonce': w3.eth.get_transaction_count(owner_add)
 
         })
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=p_owner)
@@ -160,22 +160,22 @@ def state(no):
 
 
 def register_voter(addr):
-    tx = con_instance.functions.register(addr).buildTransaction(
+    tx = con_instance.functions.register(addr).build_transaction(
         {
             "gasPrice": w3.eth.gas_price,
             "from": owner_add,
-            "nonce": w3.eth.getTransactionCount(owner_add)
+            "nonce": w3.eth.get_transaction_count(owner_add)
         })
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=p_owner)
     tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 
 
 def vote(a, prop, private_key):
-    tx = con_instance.functions.vote(prop).buildTransaction(
+    tx = con_instance.functions.vote(prop).build_transaction(
         {
             "gasPrice": w3.eth.gas_price,
             "from": a,
-            "nonce": w3.eth.getTransactionCount(a)
+            "nonce": w3.eth.get_transaction_count(a)
         })
     signed_tx = w3.eth.account.sign_transaction(tx, private_key=private_key)
     tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
