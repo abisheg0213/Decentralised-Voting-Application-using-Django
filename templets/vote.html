@@ -20,18 +20,25 @@ color:#539165; }
     <img src="https://pixelplex.io/wp-content/uploads/2021/02/real-world-uses-of-blockchain-enabled-voting-systems.jpg" height=300" width="500">
     <h1><em>VOTE FOR UR FAV CANDIDATE</em></h1>
 <hr></center>
-<center>
+
 <form method="POST"  method="votecand">
     {% csrf_token %}
     <label>Address: </label> <br/>
-  <input type="text" name="address"><br>
+    <select id="inputState" class="form-select" name="address">
+        <option selected>...</option>
+        <option>0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e</option><option>0x76A12e76b1B9e6378e3C1f64Bde959F35501baA6</option><option>0xA51CEc753239d4F6aD26Bd9136176D15344c0425</option><option>Account-4</option><option>Account-5</option><option>Account-6</option>
+      <option>Account-6</option><option>Account-7</option><option>Account-8</option><option>Account-9</option><option>Account-10</option>
+      </select>
         <label>Candidate: </label> <br/>
-  <input type="text" name="candidate"><br>
-        <label>Private Key: </label> <br/>
-  <input type="text" name="private key"><br>
+        <select id="inputState" class="form-select" name="candidate">
+            <option selected>...</option>
+            <option>ADMK</option><option>DMK</option><option>BPJ</option>
+          </select>
+        <!-- <label>Private Key: </label> <br/>
+  <input type="text" name="private key"><br> -->
     <input type="SUBMIT">
 </form>
-</center>
+
 <!--<form>-->
 <!--  <div class="mb-3">-->
 <!--    <label for="exampleInputEmail1" class="form-label">Email address</label>-->

@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . import web3data
 import web3.exceptions as t
-
+private_key={'0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e':'0xfa7b8d911af886b209c4e4c1ee6d76fede33d27e30748f773e3e787dc73eea77'}
 web3data.call_me_first()
+cand_no={'ADMK':1,'DMK':2,'BPJ':3}
 # Create your views here.
 def dishome(request):
     # web3data.create_inst()
@@ -39,8 +40,8 @@ def votecand(request):
     else:
         if request.method=='POST':
             a=request.POST['address']
-            b=int(request.POST['candidate'])
-            c = request.POST['private key']
+            b=cand_no[request.POST['candidate']]
+            c = private_key[a]
             web3data.vote(a,b,c)
             s="sucessfully voted"
             return render(request,'display.html',{'text':s})
