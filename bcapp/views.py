@@ -43,14 +43,14 @@ def votecand(request):
             b=cand_no[request.POST['candidate']]
             c = private_key[a]
             web3data.vote(a,b,c)
-            s="sucessfully voted"
-            return render(request,'display.html',{'text':s})
+            s="Sucessfully voted"
+            return render(request,'display.html',{'data':s})
         s="Successfully Voted"
-        return render(request, 'vote.html')
+        return render(request, 'vote.html',{'data':s})
 def change_state(request):
     if request.method=='POST':
         s=request.POST['state']
         p=int(s)
         web3data.state(p)
         return render(request,'base.html')
-    return render(request,'statechange.html')
+    return render(request,'statechange1.html')
