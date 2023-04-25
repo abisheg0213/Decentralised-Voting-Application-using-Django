@@ -54,3 +54,14 @@ def change_state(request):
         web3data.state(p)
         return render(request,'base.html')
     return render(request,'statechange1.html')
+
+def login(request):
+    if request.method == 'POST':
+        uname = request.POST['uname']
+        passw = request.POST['passw']
+        if uname == "Nithiii" and passw == "Pussy" : 
+            return render(request,'statechange1.html')
+        else :
+            return render(request,'login.html')
+    else:
+        return render(request,'login.html')
