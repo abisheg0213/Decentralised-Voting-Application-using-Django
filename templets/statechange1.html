@@ -21,7 +21,7 @@ color:#539165; }
     <h1><em>Change State</em></h1>
 <hr></center>
 
-<form method="POST"  method="votecand">
+<form method="POST"  action="change_state">
     {% csrf_token %}
     <label>Change State:</label> <br/>
     <select id="inputState" class="form-select" name="state">

@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . import web3data
 import web3.exceptions as t
-private_key={'0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e':'0xfa7b8d911af886b209c4e4c1ee6d76fede33d27e30748f773e3e787dc73eea77'}
+private_key={'0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e':'0xfa7b8d911af886b209c4e4c1ee6d76fede33d27e30748f773e3e787dc73eea77','0x76A12e76b1B9e6378e3C1f64Bde959F35501baA6':'0xd7e4bc39d4ebe98d7ecf4338917c7c16bb7d2754a50748463d86b5ee7edd82fb','0xA51CEc753239d4F6aD26Bd9136176D15344c0425':'0x491017fc6cd64555575cbc5ac637850345908bcc9cf31b6ac3dd2be4457e7e36'}
 web3data.call_me_first()
-cand_no={'ADMK':1,'DMK':2,'BPJ':3}
+cand_no={'ADMK':0,'DMK':1,'BPJ':2}
 # Create your views here.
 def dishome(request):
     # web3data.create_inst()
@@ -31,7 +31,7 @@ def disresult(request):
         return render(request,'alert2.html')
     else:
         y=web3data.win_proposal()
-        d={0:'MONK',1:'DMK',2:'BJP'}
+        d={0:'ADMK',1:'DMK',2:'BJP'}
         print(d[y])
         return render(request, 'result.html',{'data':d[y]})
 def votecand(request):
@@ -59,7 +59,7 @@ def login(request):
     if request.method == 'POST':
         uname = request.POST['uname']
         passw = request.POST['passw']
-        if uname == "Nithiii" and passw == "Pussy" : 
+        if uname == "" and passw == "Pussy" : 
             return render(request,'statechange1.html')
         else :
             return render(request,'login.html')
