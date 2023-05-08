@@ -14,7 +14,8 @@ def dishome(request):
 
 def dis1(request):
     if(web3data.view_stage()==1):
-        return render(request, 'register.html')
+        l=['0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e','0x76A12e76b1B9e6378e3C1f64Bde959F35501baA6','0xA51CEc753239d4F6aD26Bd9136176D15344c0425','0x61F300Eb14c6E1e2fbf3a7e1bA9afFaa5d9fD36A','0xf08219F5Af4e9dD41f9c36d2dfA73a1FAef5CeD1','0x726Fff362F6bbD93f89387A05570224c6B418FD9','0x856F786F31595Fd49c4130e29a23129E45c3d65b','0xeeD4A2b2De4dA2c8fcF35C8C4426f23eC800BC6f','0xd0FDe6bd6475EF50F76c3ad853F184885d5C78c9','0x18bbF5DEeF612ad36D2bf7f1C1AC767FE8e25001']
+        return render(request, 'register.html',{'data':l})
     else:
         message = "Time to register New voter has been completed"
         return render(request, 'alert.html', {'text': message})
@@ -38,15 +39,20 @@ def votecand(request):
     if (web3data.view_stage() != 2):
         return render(request, 'alert1.html')
     else:
-        if request.method=='POST':
-            a=request.POST['address']
-            b=cand_no[request.POST['candidate']]
-            c = private_key[a]
-            web3data.vote(a,b,c)
-            s="Sucessfully voted"
-            return render(request,'display.html',{'data':s})
-        s="Successfully Voted"
-        return render(request, 'vote.html',{'data':s})
+        try:
+            if request.method=='POST':
+                a=request.POST['address']
+                b=cand_no[request.POST['candidate']]
+                c = private_key[a]
+                web3data.vote(a,b,c)
+                s="Sucessfully voted"
+                return render(request,'display.html',{'data':s})
+            s="Successfully Voted"
+            return render(request, 'vote.html',{'data':s})
+        except:
+            return render(request, 'alert2vote.html')
+
+         
 def change_state(request):
     if request.method=='POST':
         s=request.POST['state']
