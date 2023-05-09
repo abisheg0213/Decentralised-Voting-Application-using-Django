@@ -26,8 +26,7 @@ color:#539165; }
     <label>Address: </label> <br/>
     <select id="inputState" class="form-select" name="address">
         <option selected>...</option>
-        <option>0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e</option><option>0x76A12e76b1B9e6378e3C1f64Bde959F35501baA6</option><option>0xA51CEc753239d4F6aD26Bd9136176D15344c0425</option><option>Account-4</option><option>Account-5</option><option>Account-6</option>
-      <option>Account-6</option><option>Account-7</option><option>Account-8</option><option>Account-9</option><option>Account-10</option>
+        {% for i in data %} <option>{{i}}</option>{%endfor%}
       </select>
         <label>Candidate: </label> <br/>
         <select id="inputState" class="form-select" name="candidate">

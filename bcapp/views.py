@@ -48,7 +48,7 @@ def votecand(request):
                 s="Sucessfully voted"
                 return render(request,'display.html',{'data':s})
             s="Successfully Voted"
-            return render(request, 'vote.html',{'data':s})
+            return render(request, 'vote.html',{'data':l})
         except:
             return render(request, 'alert2vote.html')
 
@@ -65,7 +65,7 @@ def login(request):
     if request.method == 'POST':
         uname = request.POST['uname']
         passw = request.POST['passw']
-        if uname == "" and passw == "Pussy" : 
+        if uname == "abi" and passw == "pass" : 
             return render(request,'statechange1.html')
         else :
             return render(request,'login.html')
