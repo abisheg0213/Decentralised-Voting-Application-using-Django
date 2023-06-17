@@ -142,11 +142,11 @@ def cons():
     tx_recipt=w3.eth.wait_for_transaction_receipt(tx_hash)
 def create_inst():
     global con_instance
-    print(tx_recipt.contractAddress)
-    print(a)
-    con_instance=w3.eth.contract(address=tx_recipt.contractAddress,abi=a)
-owner_add="0xd0eC08864d16ebFd4117bA9ad489241AaaC02E1e"
-p_owner="0xfa7b8d911af886b209c4e4c1ee6d76fede33d27e30748f773e3e787dc73eea77"
+    # print(tx_recipt.contractAddress)
+    # print(a)
+    con_instance=w3.eth.contract(address="0xfd78F94C09A3b5f64cc10B3d652dFEe4A18e72fE",abi=a)
+owner_add="0x1AC2e95095F2f891060F56fd92E161B0eDf68476"
+p_owner="0x6f2cc653fc2683aa462f1c643b6fd49bfe734c3b1032edb19aada1d9ccf0b812"
 def state(no):
     tx = con_instance.functions.change_state(no).build_transaction(
         {
@@ -189,5 +189,4 @@ def view_stage():
     return l
 def call_me_first():
     compile()
-    cons()
     create_inst()
